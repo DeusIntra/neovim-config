@@ -1,0 +1,12 @@
+-- local g = vim.g
+-- 
+-- g.user_emmet_leader_key = '<c-k>'
+-- -- hello
+-- g.user_emmet_settings = {
+--     html = {
+--         expandos = [[{
+--             'hello': 'hello world!'
+--         }]]
+--     }
+-- }
+-- 
