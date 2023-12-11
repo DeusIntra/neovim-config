@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         nm('gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
         nm('[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-        nm(']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts) 
+        nm(']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
     end
 })
 
@@ -43,7 +43,6 @@ require('mason-lspconfig').setup({
     handlers = {
     default_setup,
     lua_ls = function()
-        local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup({
             settings = {
                 Lua = {
