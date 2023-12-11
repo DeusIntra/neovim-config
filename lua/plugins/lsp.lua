@@ -45,8 +45,6 @@ require('mason-lspconfig').setup({
     lua_ls = function()
         local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup({
-            -- This is where you place
-            -- your custom config
             settings = {
                 Lua = {
                     runtime = {
@@ -74,6 +72,8 @@ require('mason-lspconfig').setup({
                 'json'
             }
         })
+
+        -- lspconfig.omnisharp.setup({})
     end,
     },
 })
