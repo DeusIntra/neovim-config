@@ -1,4 +1,3 @@
---local map = vim.api.nvim_set_keymap
 local map = vim.keymap.set
 
 -- Key remap functions
@@ -31,3 +30,9 @@ function nxm(key, command, opts)
     if opts == nil then opts = {noremap=true} end
     map({'n', 'x'}, key, command, opts)
 end
+
+function nim(key, command, opts)
+    if opts == nil then opts = {noremap=true} end
+    map({'n', 'i'}, key, command, opts)
+end
+

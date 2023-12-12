@@ -1,15 +1,14 @@
 -- Setup a few default options for lspconfig.
 -- Use mason.nvim and mason-lspconfig.nvim to manage all your LSP servers.
 -- Setup completions using nvim-cmp.
-
+require('keys/helper')
 local lspconfig = require('lspconfig')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-require('keys/helper')
 
 vim.api.nvim_create_autocmd('LspAttach', {
     desc = 'LSP actions',
     callback = function(event)
-        local opts = {buffer = event.buf}
+        local opts = { buffer = event.buf }
 
         nm('K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
         nm('gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -41,57 +40,57 @@ require('mason-lspconfig').setup({
         'volar',
     },
     handlers = {
-    default_setup,
-    lua_ls = function()
-        lspconfig.lua_ls.setup({
-            settings = {
-                Lua = {
-                    runtime = {
-                        version = 'LuaJIT'
-                    },
-                    diagnostics = {
-                        globals = {'vim'},
-                    },
-                    workspace = {
-                        library = {
-                            vim.env.VIMRUNTIME,
+        default_setup,
+        lua_ls = function()
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT'
+                        },
+                        diagnostics = {
+                            globals = { 'vim' },
+                        },
+                        workspace = {
+                            library = {
+                                vim.env.VIMRUNTIME,
+                            }
                         }
                     }
                 }
-            }
-        })
+            })
 
-        lspconfig.volar.setup({
-            filetypes = {
-                'typescript',
-                'javascript',
-                'javascriptreact',
-                'typescriptreact',
-                'vue',
-                'json'
-            }
-        })
+            lspconfig.volar.setup({
+                filetypes = {
+                    'typescript',
+                    'javascript',
+                    'javascriptreact',
+                    'typescriptreact',
+                    'vue',
+                    'json'
+                }
+            })
 
-        -- lspconfig.omnisharp.setup({})
-    end,
+            -- lspconfig.omnisharp.setup({})
+        end,
     },
 })
 
 local cmp = require('cmp')
 cmp.setup({
-  sources = {
-    {name = 'nvim_lsp'},
-  },
-  mapping = cmp.mapping.preset.insert({
-    -- Enter key confirms completion item
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    sources = {
+        { name = 'nvim_lsp' },
+    },
+    mapping = cmp.mapping.preset.insert({
+        -- Enter key confirms completion item
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
-    -- Ctrl + space triggers completion menu
-    ['<C-Space>'] = cmp.mapping.complete(),
-  }),
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
+        -- Ctrl + space triggers completion menu
+        ['<C-Space>'] = cmp.mapping.complete(),
+    }),
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+        end,
+    },
 })
