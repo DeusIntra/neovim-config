@@ -38,6 +38,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
         'volar',
+        'omnisharp',
     },
     handlers = {
         default_setup,
@@ -64,14 +65,13 @@ require('mason-lspconfig').setup({
                 filetypes = {
                     'typescript',
                     'javascript',
-                    'javascriptreact',
-                    'typescriptreact',
                     'vue',
                     'json'
                 }
             })
 
             -- lspconfig.omnisharp.setup({})
+
         end,
     },
 })

@@ -1,11 +1,10 @@
--- emmet is dumb (needs to set its variables before initializing)
---require('plugins/emmet')
+-- some variables that need to be set in advance
+require('base/before')
 
 --[[ plugin manager ]]
 require('plugins/lazy')
 
 --[[ actual plugins ]]
---
 -- cosmetics
 require('plugins/lualine')
 require('plugins/onedark')
@@ -32,3 +31,4 @@ require('/base/providers')
 --
 require('/keys/main')
 require('/keys/plugins')
+

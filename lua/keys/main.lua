@@ -9,5 +9,4 @@ nim('<c-j>', function() vim.cmd('silent! .m.+1<cr>') end)
 nim('<c-k>', function()
     vim.cmd('silent! .-1m.<cr>')
     vim.cmd('normal! k')
-    end)
-
+end)
