@@ -10,3 +10,6 @@ nim('<c-k>', function()
     vim.cmd('silent! .-1m.<cr>')
     vim.cmd('normal! k')
 end)
+
+tm('<esc>', '<C-\\><C-N>')
+
