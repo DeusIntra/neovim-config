@@ -9,3 +9,10 @@ nm('<leader>fh', tb.help_tags)
 
 -- toggleterm
 nm('<leader>tt', function() vim.cmd('ToggleTerm size=5 dir=git_dir direction=horizontal') end)
+
+-- nvim tree
+nm('<leader>ee', function () vim.cmd('silent! NvimTreeToggle') end)
+
+-- neogit
+nm('<leader>gg', function () vim.cmd('silent! Neogit') end)
+
