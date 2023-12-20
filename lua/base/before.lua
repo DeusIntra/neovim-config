@@ -1,6 +1,6 @@
 local g = vim.g
 
-g.user_emmet_leader_key = '<c-k>'
+g.user_emmet_leader_key = '<c-l>'
 g.user_emmet_settings = {
     variables = {
         lang = 'ru',
